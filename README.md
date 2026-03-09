@@ -50,8 +50,6 @@ The server offers the following tools:
     * Replace `YOUR_PAGE_ACCESS_TOKEN` and `YOUR_PAGE_ID` with your actual values.
     * **Important:** Add `.env` to your `.gitignore` to avoid committing sensitive information.
 
-    * **Page token required (new Pages experience):** The access token must be a **Page** access token, not a User token. If you see `Invalid OAuth 2.0 Access Token` with "User access token is not supported" / "A Page access token is required" (code 190, subcode 2069032), the app is sending a User token. Fix: set `FACEBOOK_PAGE_ACCESS_TOKEN` to the Page token (e.g. from [Access Token Tool](https://developers.facebook.com/tools/accesstoken/) — choose your App, then "Get Page Access Token" and select your Page). For deployments (e.g. OpenClaw): ensure the environment variable is the Page token for the target page (Page ID `1078511068671402` → use that page’s token and set `FACEBOOK_PAGE_ID=1078511068671402`).
-
 2.  **Configure in Claude Desktop (or your MCP Client):**
     * Configure your MCP client (e.g., Claude Desktop) to connect to the Facebook MCP server.
     * Example configuration for Claude Desktop (uv):
