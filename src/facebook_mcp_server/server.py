@@ -10,10 +10,12 @@ import mcp.server.stdio
 from pydantic import AnyUrl
 from typing import Any
 from dotenv import load_dotenv
+from pathlib import Path
 
 
-# Load environment variables from .env file
-load_dotenv()
+# Load environment variables from .env file (prefer repo-local .env and override inherited env)
+_DOTENV_PATH = Path(__file__).resolve().parents[2] / ".env"
+load_dotenv(dotenv_path=_DOTENV_PATH, override=True)
 
 # Reconfigure UnicodeEncodeError prone default (i.e. windows-1252) to utf-8
 if sys.platform == "win32" and os.environ.get('PYTHONIOENCODING') is None:
